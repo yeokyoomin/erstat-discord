@@ -1,11 +1,9 @@
 {
   "all_cmd": {
-    "powered": "⚡ powered by erstat.xyz",
+    "powered_footer": "⚡ powered by erstat.xyz",
     "load": "Loading information...",
     "not_found": "Information not found!",
     "found_error": "An error occurred while searching for information!"
   },
-  "stat_search": {
-    "res_title": "This is {nickname}'s record!"
-  }
+  "cmd_pong": "🏓 Pong!"
 }

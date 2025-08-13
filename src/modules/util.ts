@@ -17,11 +17,27 @@ class HelloExtension extends Extension {
   @applicationCommand({
     name: 'ping',
     type: ApplicationCommandType.ChatInput,
-    description: "Check the bot's latency.",
+    description: "Check the bot's latency",
+    nameLocalizations: {
+      ko: "핑"
+    },
+    descriptionLocalizations: {
+      ko: "봇의 지연시간을 확인해요."
+    }
   })
   async ping(i: ChatInputCommandInteraction) {
     const lang = await loadLocale(i.locale)
-    await i.reply(lang.all_cmd.powered_footer)
+    await i.deferReply();
+    const reply = await i.fetchReply();
+    const Ping_Embed = new EmbedBuilder()
+      .setColor("#60a5fa")
+      .setTitle(`${lang.cmd_pong}`)
+      .addFields(
+        { name: "Client", value: `${reply.createdTimestamp - i.createdTimestamp}ms`, inline: true },
+        { name: "Websocket", value: `${i.client.ws.ping}ms`, inline: true }
+      )
+      .setFooter({ text: lang.all_cmd.powered_footer })
+    return i.editReply({ embeds: [Ping_Embed] })
   }
 }
 
