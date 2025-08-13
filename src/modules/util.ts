@@ -1,6 +1,6 @@
 import { Extension, applicationCommand, listener } from '@pikokr/command.ts'
 import { ApplicationCommandType, ChatInputCommandInteraction, EmbedBuilder } from 'discord.js'
-import { formatMessage, loadLocale } from '../structures/dev_modules'
+import { loadLocale } from '../structures/dev_modules'
 
 class HelloExtension extends Extension {
   @listener({ event: 'ready' })
