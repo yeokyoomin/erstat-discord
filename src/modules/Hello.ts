@@ -1,5 +1,6 @@
 import { Extension, applicationCommand, listener } from '@pikokr/command.ts'
 import { ApplicationCommandType, ChatInputCommandInteraction, EmbedBuilder } from 'discord.js'
+import { formatMessage, loadLocale } from '../structures/dev_modules'
 
 class HelloExtension extends Extension {
   @listener({ event: 'ready' })
@@ -19,8 +20,8 @@ class HelloExtension extends Extension {
     description: "Check the bot's latency.",
   })
   async ping(i: ChatInputCommandInteraction) {
-    const userLocale = i.locale;
-    await i.reply(`현재 언어 : ${i.locale}`)
+    const lang = await loadLocale(i.locale)
+    await i.reply(lang.all_cmd.powered_footer)
   }
 }
 

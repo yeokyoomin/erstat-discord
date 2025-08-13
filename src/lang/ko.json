@@ -1,0 +1,12 @@
+{
+  "all_cmd": {
+    "powered_footer": "⚡ powered by erstat.xyz",
+    "load": "정보를 불러오는 중이에요...",
+    "not_found": "정보를 찾을 수 없어요...",
+    "found_error": "정보를 찾던 중 오류가 발생했어요...",
+    "req_failed": "정보 요청을 실패했어요..."
+  },
+  "stat_search": {
+    "res_title": "{nickname}님의 전적이에요!"
+  }
+}
