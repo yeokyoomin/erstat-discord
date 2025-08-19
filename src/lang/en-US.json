@@ -1,9 +1,13 @@
 {
   "all_cmd": {
     "powered_footer": "⚡ powered by erstat.xyz",
-    "load": "Loading information...",
-    "not_found": "Information not found!",
-    "found_error": "An error occurred while searching for information!"
+    "not_found": "data not found!",
+    "found_error": "An error occurred while searching for data!",
+    "req_failed": "Failed to request data..."
   },
-  "cmd_pong": "🏓 Pong!"
+  "spec_cmd": {
+    "cp_desc": "Currently, the number of concurrent users on Eternal Return is **{user}**."
+  },
+  "cmd_pong": "🏓 Pong!",
+  "cmd_currentplayer": "CurrentPlayer"
 }
