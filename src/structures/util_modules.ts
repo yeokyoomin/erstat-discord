@@ -9,7 +9,6 @@ export async function loadLocale(userLocale: string) {
         return (await import(`../lang/en-US.json`)).default;
     }
 }
-
 export function comma(num: number | string): string {
     return new Intl.NumberFormat("ko-KR").format(Number(num));
 }

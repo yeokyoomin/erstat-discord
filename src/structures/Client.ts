@@ -15,7 +15,7 @@ class DevModule extends Extension {
     name: 'reload',
     description: 'reload modules',
   })
-  //* */
+  /*프로덕션 모드에서는 주석처리.*/
   async reload(i: ChatInputCommandInteraction) {
     await i.deferReply()
     const result = await this.commandClient.registry.reloadModules()

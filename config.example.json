@@ -1,6 +1,7 @@
 {
-  "token": "token",
+  "token": "discord bot token",
   "guilds": null,
   "db_url": "postgres://<사용자>:<비밀번호>@<호스트:IP>/<DB이름>",
-  "app_id": "https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=1049590"
+  "app_id": "https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=1049590",
+  "req_url": "api request url"
 }

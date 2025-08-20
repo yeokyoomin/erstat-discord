@@ -1,21 +1,10 @@
-import { Extension, applicationCommand, listener } from '@pikokr/command.ts'
+import { Extension, applicationCommand } from '@pikokr/command.ts'
 import { ApplicationCommandType, ChatInputCommandInteraction, EmbedBuilder } from 'discord.js'
-import { loadLocale, formatMessage, comma } from '../structures/dev_modules'
+import { loadLocale, formatMessage, comma } from '../structures/util_modules'
 import { default as axios } from 'axios';
 import { config } from '../config';
 
-class HelloExtension extends Extension {
-  @listener({ event: 'ready' })
-  async ready() {
-    this.logger.info(`Logged in as ${this.client.user?.tag}`)
-    await this.commandClient.fetchOwners()
-  }
-
-  @listener({ event: 'applicationCommandInvokeError', emitter: 'cts' })
-  async errorHandler(err: Error) {
-    this.logger.error(err)
-  }
-
+class UtilModules extends Extension {
   @applicationCommand({
     name: 'ping',
     type: ApplicationCommandType.ChatInput,
@@ -75,5 +64,5 @@ class HelloExtension extends Extension {
 }
 
 export const setup = async () => {
-  return new HelloExtension()
+  return new UtilModules()
 }
