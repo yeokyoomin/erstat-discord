@@ -25,7 +25,8 @@ class UtilModules extends Extension {
       .setTitle(`${lang.cmd_pong}`)
       .addFields(
         { name: "Client", value: `${reply.createdTimestamp - i.createdTimestamp}ms`, inline: true },
-        { name: "Websocket", value: `${i.client.ws.ping}ms`, inline: true }
+        { name: "Websocket", value: `${i.client.ws.ping}ms`, inline: true },
+        { name: "Erstat", value: `미지원.`, inline: true }
       )
       .setFooter({ text: lang.all_cmd.powered_footer })
     return i.editReply({ embeds: [Ping_Embed] })

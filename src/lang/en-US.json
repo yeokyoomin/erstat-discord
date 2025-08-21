@@ -9,5 +9,6 @@
     "cp_desc": "Currently, the number of concurrent users on Eternal Return is **{user}**."
   },
   "cmd_pong": "🏓 Pong!",
-  "cmd_currentplayer": "CurrentPlayer"
+  "cmd_currentplayer": "Current Player",
+  "cmd_routesearch": "Route Search"
 }

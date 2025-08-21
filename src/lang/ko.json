@@ -9,5 +9,6 @@
     "cp_desc": "현재 이터널리턴의 동시 접속자 수는 **{user}명**이에요."
   },
   "cmd_pong": "🏓 퐁!",
-  "cmd_currentplayer": "동시접속자"
+  "cmd_currentplayer": "동시 접속자",
+  "cmd_routesearch": "루트 검색"
 }

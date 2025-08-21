@@ -1,6 +1,7 @@
 import { Extension, applicationCommand, option } from '@pikokr/command.ts'
 import { ApplicationCommandType, ChatInputCommandInteraction, EmbedBuilder, ApplicationCommandOptionType } from 'discord.js'
 import { loadLocale, formatMessage, comma } from '../structures/util_modules'
+import * as callapi from '../structures/api_modules'
 
 class MainModules extends Extension {
     @applicationCommand({
@@ -16,32 +17,31 @@ class MainModules extends Extension {
     })
     async info(
         @option({
-            name: 'type',
+            name: 'routeid',
             nameLocalizations: {
-                'ko': "타입"
+                'ko': "루트id"
             },
-            description: 'Please select how you would like to use the route command.',
+            description: 'Please enter your root ID.',
             descriptionLocalizations: {
-                'ko': "루트 명령어를 어떤 방법으로 사용할지 선택해 주세요."
+                'ko': "루트 ID를 입력해 주세요."
             },
             type: ApplicationCommandOptionType.String,
             required: true,
-            choices: [
-                {
-                    name: '루트 ID',
-                    nameLocalizations: {
-
-                    },
-                    value: 'rid',
-                },
-                {
-                    name: '추천 루트',
-                    value: 'rec',
-                },
-            ],
         })
-        viewtype: string,
+        infodeatail: string,
         i: ChatInputCommandInteraction
     ) {
+        const lang = await loadLocale(i.locale)
+        const routedata = callapi.get_root_info(infodeatail)
+        const Embed = new EmbedBuilder()
+            .setColor("#60a5fa")
+            .setTitle(`${lang.cmd_routesearch}`)
+            .setDescription(`${routedata}`)
+            .setFooter({ text: lang.all_cmd.powered_footer })
+        return i.reply({ embeds: [Embed] })
     }
+}
+
+export const setup = async () => {
+    return new MainModules()
 }
