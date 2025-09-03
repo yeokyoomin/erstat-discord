@@ -20,14 +20,16 @@ class UtilModules extends Extension {
     const lang = await loadLocale(i.locale);
     await i.deferReply();
     const reply = await i.fetchReply();
+    let requestDuration: string;
 
-    const start = Date.now();
     try {
-      await axios.get('http://localhost:5173/api/route');
+      const start = Date.now();
+      await axios.get('http://localhost:5173/api/route', { timeout: 5000 });
+      const end = Date.now();
+      requestDuration = `${end - start}ms`;
     } catch (error) {
+      requestDuration = "오프라인.";
     }
-    const end = Date.now();
-    const requestDuration = end - start;
 
     const Ping_Embed = new EmbedBuilder()
       .setColor("#60a5fa")
