@@ -17,20 +17,31 @@ class UtilModules extends Extension {
     }
   })
   async ping(i: ChatInputCommandInteraction) {
-    const lang = await loadLocale(i.locale)
+    const lang = await loadLocale(i.locale);
     await i.deferReply();
     const reply = await i.fetchReply();
+
+    const start = Date.now();
+    try {
+      await axios.get('http://localhost:5173/api/route');
+    } catch (error) {
+    }
+    const end = Date.now();
+    const requestDuration = end - start;
+
     const Ping_Embed = new EmbedBuilder()
       .setColor("#60a5fa")
       .setTitle(`${lang.cmd_pong}`)
       .addFields(
         { name: "Client", value: `${reply.createdTimestamp - i.createdTimestamp}ms`, inline: true },
         { name: "Websocket", value: `${i.client.ws.ping}ms`, inline: true },
-        { name: "Erstat", value: `미지원.`, inline: true }
+        { name: "ERStat", value: `${requestDuration}ms`, inline: true }
       )
-      .setFooter({ text: lang.all_cmd.powered_footer })
-    return i.editReply({ embeds: [Ping_Embed] })
+      .setFooter({ text: lang.all_cmd.powered_footer });
+
+    return i.editReply({ embeds: [Ping_Embed] });
   }
+
 
   @applicationCommand({
     name: 'current-player',
