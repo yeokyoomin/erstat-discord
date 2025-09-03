@@ -24,11 +24,17 @@ class UtilModules extends Extension {
 
     try {
       const start = Date.now();
-      await axios.get('http://localhost:5173/api/route', { timeout: 5000 });
+      await axios.get('http://localhost:5173/api/route', {
+        headers: {
+          'x-api-key': `${config.api_key}`
+        },
+        timeout: 5000
+      });
       const end = Date.now();
       requestDuration = `${end - start}ms`;
     } catch (error) {
-      requestDuration = "오프라인.";
+      console.log(error);
+      requestDuration = "오프라인";
     }
 
     const Ping_Embed = new EmbedBuilder()
@@ -37,7 +43,7 @@ class UtilModules extends Extension {
       .addFields(
         { name: "Client", value: `${reply.createdTimestamp - i.createdTimestamp}ms`, inline: true },
         { name: "Websocket", value: `${i.client.ws.ping}ms`, inline: true },
-        { name: "ERStat", value: `${requestDuration}ms`, inline: true }
+        { name: "ERStat", value: `${requestDuration}`, inline: true }
       )
       .setFooter({ text: lang.all_cmd.powered_footer });
 
