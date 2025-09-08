@@ -3,10 +3,17 @@
     "powered_footer": "⚡ powered by erstat.xyz",
     "not_found": "data not found!",
     "found_error": "An error occurred while searching for data!",
-    "req_failed": "Failed to request data..."
+    "req_failed": "Failed to request data...",
+    "error": "Error"
   },
   "spec_cmd": {
     "cp_desc": "Currently, the number of concurrent users on Eternal Return is **{user}**."
+  },
+  "route_cmd": {
+    "route_not_founded": "The route does not exist.\nPlease check if the route ID **{id}** is correct.",
+    "route_founded": "**Route Search:** {ID}",
+    "route_search_error": "An unknown error occurred while searching for the route.",
+    "route_please_wait": "Loading route information. Please wait a moment!"
   },
   "cmd_pong": "🏓 Pong!",
   "cmd_currentplayer": "Current Player",

@@ -28,17 +28,44 @@ class MainModules extends Extension {
             type: ApplicationCommandOptionType.String,
             required: true,
         })
-        infodeatail: string,
+        infodetail: string,
         i: ChatInputCommandInteraction
     ) {
         const lang = await loadLocale(i.locale)
-        const routedata = callapi.get_root_info(infodeatail)
         const Embed = new EmbedBuilder()
             .setColor("#60a5fa")
             .setTitle(`${lang.cmd_routesearch}`)
-            .setDescription(`${routedata}`)
+            .setDescription(`${lang.route_cmd.route_please_wait}`)
             .setFooter({ text: lang.all_cmd.powered_footer })
-        return i.reply({ embeds: [Embed] })
+
+        await i.reply({ embeds: [Embed] })
+
+        const routedata = await callapi.get_root_info(infodetail)
+        console.log(routedata)
+        try {
+            if (routedata.code == 404) {
+                const ErrorEmbed = new EmbedBuilder()
+                    .setColor("#f75555")
+                    .setTitle(`${lang.all_cmd.error}`)
+                    .setDescription(`${formatMessage(lang.route_cmd.route_not_founded, { id: infodetail })}`)
+                    .setFooter({ text: lang.all_cmd.powered_footer })
+                return await i.editReply({ embeds: [ErrorEmbed] })
+            } else {
+                const Embed = new EmbedBuilder()
+                    .setColor("#60a5fa")
+                    .setTitle(`${lang.cmd_routesearch}`)
+                    .setDescription(`[In dev]`)
+                    .setFooter({ text: lang.all_cmd.powered_footer })
+                return await i.editReply({ embeds: [Embed] })
+            }
+        } catch (error) {
+            const ErrorEmbed = new EmbedBuilder()
+                .setColor("#f75555")
+                .setTitle(`${lang.all_cmd.error}`)
+                .setDescription(`${lang.route_cmd.route_search_error}\n\`⚠️ ${error}\``)
+                .setFooter({ text: lang.all_cmd.powered_footer })
+            return await i.editReply({ embeds: [ErrorEmbed] })
+        }
     }
 }
 
