@@ -17,11 +17,8 @@ class MainModules extends Extension {
     })
     async info(
         @option({
-            name: 'routeid',
-            nameLocalizations: {
-                'ko': "루트id"
-            },
-            description: 'Please enter your root ID.',
+            name: 'id',
+            description: 'Please enter your route ID.',
             descriptionLocalizations: {
                 'ko': "루트 ID를 입력해 주세요."
             },
