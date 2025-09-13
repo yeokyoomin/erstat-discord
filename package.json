@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@pikokr/command.ts": "^5.4.0",
-    "axios": "^1.11.0",
+    "axios": "^1.12.0",
     "discord.js": "^14.21.0",
     "drizzle-orm": "^0.44.4",
     "postgres": "^3.4.7",
