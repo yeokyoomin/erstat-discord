@@ -24,17 +24,13 @@ class UtilModules extends Extension {
 
     try {
       const start = Date.now();
-      await axios.get('http://localhost:5173/api/route', {
-        headers: {
-          'x-api-key': `${config.api_key}`
-        },
-        timeout: 5000
+      await axios.get(`${config.req_url}/ok`, {
+        timeout: 7000
       });
       const end = Date.now();
       requestDuration = `${end - start}ms`;
     } catch (error) {
-      console.log(error);
-      requestDuration = "오프라인";
+      requestDuration = "측정불가";
     }
 
     const Ping_Embed = new EmbedBuilder()

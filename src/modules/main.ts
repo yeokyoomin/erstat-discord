@@ -38,7 +38,6 @@ class MainModules extends Extension {
         await i.reply({ embeds: [Embed] })
 
         const routedata = await callapi.get_root_info(infodetail)
-        console.log(routedata)
         try {
             if (routedata.code == 404) {
                 const ErrorEmbed = new EmbedBuilder()
