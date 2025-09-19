@@ -13,7 +13,10 @@
     "route_not_founded": "루트가 존재하지 않습니다.\n루트 ID **{id}**가 맞는지 확인해 주세요.",
     "route_founded": "**루트 검색:** {ID}",
     "route_search_error": "루트 검색 중 알 수 없는 오류가 발생했어요.",
-    "route_please_wait": "루트 정보를 불러오는 중이에요. 잠시만 기다려 주세요!"
+    "route_please_wait": "루트 정보를 불러오는 중이에요. 잠시만 기다려 주세요!",
+    "author": "작성자: {user}",
+    "no_desc": "루트 설명이 없어요.",
+    "no_skillpath": "스킬 트리가 없어요."
   },
   "cmd_pong": "🏓 퐁!",
   "cmd_currentplayer": "동시 접속자",

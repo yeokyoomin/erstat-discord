@@ -48,11 +48,16 @@ class MainModules extends Extension {
                     .setFooter({ text: lang.all_cmd.powered_footer })
                 return await i.editReply({ embeds: [ErrorEmbed] })
             } else {
+                const desc = routedata.result.recommendWeaponRouteDesc.desc || lang.route_cmd.no_desc
+                let spath = routedata.result.recommendWeaponRouteDesc?.skillPath?.includes('q')
+                    ? routedata.result.recommendWeaponRouteDesc.skillPath
+                    : lang.route_cmd.no_skillpath
                 const Embed = new EmbedBuilder()
                     .setColor("#60a5fa")
-                    .setTitle(`${lang.cmd_routesearch}`)
-                    .setDescription(`[In dev]`)
+                    .setTitle(`${routedata.result.recommendWeaponRoute.title}`)
+                    .setDescription(`${formatMessage(lang.route_cmd.author, { user: routedata.result.recommendWeaponRoute.userNickname })}\ndescription : ${desc}\nskill tree : ${spath}`)
                     .setFooter({ text: lang.all_cmd.powered_footer })
+                    .setImage('https://cdn.discordapp.com/attachments/1306871563114647593/1381126676536229918/-001_6.png?ex=68c24ef3&is=68c0fd73&hm=e7e1443e97db94b8fce434cf0b70b318b1df222798264c4add2a67f5a981e549&')
                 return await i.editReply({ embeds: [Embed] })
             }
         } catch (error) {

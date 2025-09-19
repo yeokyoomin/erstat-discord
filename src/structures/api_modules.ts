@@ -3,7 +3,6 @@ import axios from 'axios';
 
 export async function get_root_info(route_id: string) {
     let response
-    console.log(`${config.req_url}/route/${route_id}`)
     try {
         response = await axios.get(
             `${config.req_url}/route/${route_id}`,

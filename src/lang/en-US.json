@@ -13,7 +13,10 @@
     "route_not_founded": "The route does not exist.\nPlease check if the route ID **{id}** is correct.",
     "route_founded": "**Route Search:** {ID}",
     "route_search_error": "An unknown error occurred while searching for the route.",
-    "route_please_wait": "Loading route information. Please wait a moment!"
+    "route_please_wait": "Loading route information. Please wait a moment!",
+    "author": "Author: {user}",
+    "no_desc": "There is no route description.",
+    "no_skillpath": "There is no skill tree."
   },
   "cmd_pong": "🏓 Pong!",
   "cmd_currentplayer": "Current Player",
